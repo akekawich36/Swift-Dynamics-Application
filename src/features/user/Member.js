@@ -19,7 +19,8 @@ function Member() {
             headerName: "NAME",
             width: 200,
             editable: true,
-        },
+               valueGetter: (params) =>
+            `${params.row.Firstname || ''} ${params.row.Lastname || ''}`},
         {
             field: "gender",
             headerName: "GENDER",
