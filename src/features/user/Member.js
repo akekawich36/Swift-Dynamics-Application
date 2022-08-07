@@ -19,8 +19,9 @@ function Member() {
             headerName: "NAME",
             width: 200,
             editable: true,
-               valueGetter: (params) =>
-            `${params.row.Firstname || ''} ${params.row.Lastname || ''}`},
+            valueGetter: (params) =>
+                `${params.row.Firstname || ""} ${params.row.Lastname || ""}`,
+        },
         {
             field: "gender",
             headerName: "GENDER",
@@ -64,45 +65,28 @@ function Member() {
             width: 180,
             editable: true,
         },
-        // {
-        //   field: 'fullName',
-        //   headerName: 'Full name',
-        //   description: 'This column has a value getter and is not sortable.',
-        //   sortable: false,
-        //   width: 160,
-        //   valueGetter: (params: GridValueGetterParams) =>
-        //     ${params.row.firstName || ''} ${params.row.lastName || ''},
-        // },
     ];
 
     const handleDeleteRow = () => {
         let temp = [...information];
-        let deleteList = []
-        temp.forEach((item,index)=>{
-            selectionModel.forEach((itemSelect,indexSelect)=>{
-                if(itemSelect === item.id) {
-                    deleteList.push(index)
+        let deleteList = [];
+        temp.forEach((item, index) => {
+            selectionModel.forEach((itemSelect, indexSelect) => {
+                if (itemSelect === item.id) {
+                    deleteList.push(index);
                 }
-            })
-        })
-        for (var i = deleteList.length -1; i >= 0; i--){
-            temp.splice(deleteList[i], 1)
+            });
+        });
+        for (var i = deleteList.length - 1; i >= 0; i--) {
+            temp.splice(deleteList[i], 1);
         }
         dispatch(update(temp));
-        setSelectionModel([])
-        // select.map((item, idx) => {
-        //     debugger
-        //     if (idx === selectionModel) {
-        //         debugger
-        //         select.splice(0)
-        //     }
-        //     console.log(select);
-        // });
-    }
+        setSelectionModel([]);
+    };
 
     const processRowUpdate = (newRow) => {
         let info = [...information];
-        info.map((item, idx) => {
+        info.forEach((item, idx) => {
             if (newRow.id === item.id) {
                 item = newRow;
                 console.log(item);
@@ -116,7 +100,7 @@ function Member() {
 
     return (
         <Box sx={{ height: 400, width: "100%" }}>
-            <Button size="small" onClick={handleDeleteRow}>
+            <Button onClick={handleDeleteRow}>
                 Delete
             </Button>
             <DataGrid
@@ -131,7 +115,7 @@ function Member() {
                 checkboxSelection
                 onSelectionModelChange={(newSelectionModel) => {
                     setSelectionModel(newSelectionModel);
-                  }}
+                }}
                 disableSelectionOnClick
             />
         </Box>

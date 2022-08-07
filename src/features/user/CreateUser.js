@@ -1,99 +1,109 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
 import { add } from "./userSlice";
 import "./CreateUser.css";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import PhoneInput from "react-phone-number-input";
 
 const CreateUser = () => {
-    
     const dispatch = useDispatch();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
         dispatch(add(data));
-        reset()
-
+        reset();
     };
 
     return (
-        <div className="Container">
+        <Box sx={{ flexGrow: 5 }} classname="Box">
             <form onSubmit={handleSubmit(onSubmit)} className="Form">
-                <div className="Name">
-                    <div className="title">
-                        <span>Title *: </span>
-                        <select {...register("Title")} required>
-                            <option value="Mr.">Mr.</option>
-                            <option value="Ms.">Ms.</option>
-                            <option value="Miss.">Miss.</option>
-                        </select>
-                    </div>
-                    <div className="firstname">
-                        <span>Firstname *: </span>
-                        <input {...register("Firstname")} required />
-                    </div>
-                    <div className="lastname">
-                        <span>Lastname *: </span>
-                        <input {...register("Lastname")} required/>
-                    </div>
-                </div>
-                <div className="birthdaynation">
-                    <div className="birthday">
-                        <span>BirthDay *: </span>
-                        <input {...register("Birthday")} type="date" required/>
-                    </div>
-                    <span>Nationality : </span>
+                <Grid containeer spacing={6}>
+                    <Grid>
+                        <Grid item xs={10}>
+                            Title * :
+                            <select {...register("Title")} required>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Ms.">Ms.</option>
+                                <option value="Miss.">Miss.</option>
+                            </select>
+                        </Grid>
+                        <Grid xs={4}>
+                            Firstname * :
+                            <input
+                                {...register("Firstname")}
+                                required
+                                type="text"
+                            />
+                        </Grid>
+                        <Grid xs={4}>
+                            Lastname * :
+                            <input
+                                {...register("Lastname")}
+                                required
+                                type="text"
+                            />
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid>
+                    BirthDay * :
+                    <input {...register("Birthday")} type="date" required />
+                </Grid>
+                <Grid>
+                    Nationality :
                     <select {...register("Nationality")}>
-                        <option value="thai">thai</option>
-                        <option value="japan">japan</option>
-                        <option value="Chinese">chinese</option>
+                        <option value="thai">Thai</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="German">German</option>
+                        <option value="Korean">Korean</option>
                     </select>
-                </div>
-                <div className="cityzen">
-                    <span>CityzenID : </span>
-                    <input {...register("CityzenID")} />
-                </div>
-                <div className="gender">
-                    <span>Gender :</span>
-                    <span>
-                        <input
-                            type="radio"
-                            {...register("gender")}
-                            value="male"
-                        />{" "}
-                        Male
-                        <input
-                            type="radio"
-                            {...register("gender")}
-                            value="female"
-                        />{" "}
-                        Female
-                        <input
-                            type="radio"
-                            {...register("gender")}
-                            value="unisex"
-                        />{" "}
-                        Unisex
-                    </span>
-                </div>
-                <div className="moblie">
-                    <span>MobliePhone : </span>
+                </Grid>
+                <Grid>
+                    CityzenID :
+                    <input {...register("CityzenID")} type="number" />
+                </Grid>
+                <Grid className="gender">
+                    Gender :
+                    <input
+                        type="radio"
+                        {...register("gender")}
+                        value="Male"
+                    />{" "}
+                    Male
+                    <input
+                        type="radio"
+                        {...register("gender")}
+                        value="Female"
+                    />{" "}
+                    Female
+                    <input
+                        type="radio"
+                        {...register("gender")}
+                        value="Unisex"
+                    />{" "}
+                    Unisex
+                </Grid>
+                <Grid className="moblie">
+                    Moblie Phone :
                     <PhoneInput {...register("MobliePhone")} />
-                </div>
-                <div className="passport">
-                    <span>Passport No : </span>
-                    <input {...register("Passport No")} />
-                </div>
-                <div className="expect">
-                    <div className="salary">
-                        <span>Expected Salary : </span>
-                        <input {...register("Expected Salary")} />
-                    </div>
+                </Grid>
+                <Grid>
+                    Passport No :
+                    <input {...register("Passport No")} type="number" />
+                </Grid>
+                <Grid>
+                    Expected Salary :
+                    <input {...register("Expected Salary")} type="number" />
+                </Grid>
+                <Grid>
                     <input type="submit" className="submit" />
-                </div>
+                </Grid>
             </form>
-        </div>
+        </Box>
     );
 };
 
