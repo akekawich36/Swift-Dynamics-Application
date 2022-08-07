@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container {
+    background-color:white;
+    width: 1000px;
+    height: 500px;
+    border: groove 1px;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Name {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.title {
+    display: flex;
+    flex-grow: 0.3;
+}
+
+.firstname {
+    display: flex;
+    flex-grow: 0.4;
+}
+
+.lastname {
+    display: flex;
+    flex-grow: 0.4;
+}
+
+.birthdaynation {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.birthday {
+    display: flex;
+    flex-grow: 0.2;
+}
+
+.cityzen {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.gender {
+    display: flex;
+    flex-direction: row;
+}
+
+.moblie {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.passport {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.expect {
+    display: flex;
+    flex-direction: row;
+}
+
+.salary {
+    display: flex;
+    flex-grow: 0.79;
+}
+
+.submit {
+    padding: 5px;
+}
+
+input {
+    height: 30px;
+}
+
+select {
+    height: 20px;
+}
+
+span {
+    font-weight: bold;
+}
