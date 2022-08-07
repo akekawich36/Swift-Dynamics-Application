@@ -1,3 +1,11 @@
-.Showmember {
-    margin-top: 10px;
+* {
+    padding: 0;
+}
+
+.App {
+    width: 800px;
+}
+
+.Box {
+    margin: 10px;
 }
