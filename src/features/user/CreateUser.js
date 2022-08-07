@@ -7,6 +7,7 @@ import "./CreateUser.css";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import PhoneInput from "react-phone-number-input";
+import Button from "@mui/material/Button";
 
 const CreateUser = () => {
     const dispatch = useDispatch();
@@ -18,51 +19,47 @@ const CreateUser = () => {
     };
 
     return (
-        <Box sx={{ flexGrow: 5 }} classname="Box">
+        <Box className="Box">
             <form onSubmit={handleSubmit(onSubmit)} className="Form">
-                <Grid containeer spacing={6}>
+                <Grid className="Name">
                     <Grid>
-                        <Grid item xs={10}>
-                            Title * :
-                            <select {...register("Title")} required>
-                                <option value="Mr.">Mr.</option>
-                                <option value="Ms.">Ms.</option>
-                                <option value="Miss.">Miss.</option>
-                            </select>
-                        </Grid>
-                        <Grid xs={4}>
-                            Firstname * :
-                            <input
-                                {...register("Firstname")}
-                                required
-                                type="text"
-                            />
-                        </Grid>
-                        <Grid xs={4}>
-                            Lastname * :
-                            <input
-                                {...register("Lastname")}
-                                required
-                                type="text"
-                            />
-                        </Grid>
+                        Title * :
+                        <select {...register("Title")} required>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Miss.">Miss.</option>
+                        </select>
+                    </Grid>
+                    <Grid>
+                        Firstname * :
+                        <input
+                            {...register("Firstname")}
+                            required
+                            type="text"
+                        />
+                    </Grid>
+                    <Grid>
+                        Lastname * :
+                        <input {...register("Lastname")} required type="text" />
                     </Grid>
                 </Grid>
-                <Grid>
-                    BirthDay * :
-                    <input {...register("Birthday")} type="date" required />
+                <Grid className="BirthdayNation">
+                    <Grid>
+                        BirthDay * :
+                        <input {...register("Birthday")} type="date" required />
+                    </Grid>
+                    <Grid>
+                        Nationality :
+                        <select {...register("Nationality")}>
+                            <option value="thai">Thai</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="German">German</option>
+                            <option value="Korean">Korean</option>
+                        </select>
+                    </Grid>
                 </Grid>
-                <Grid>
-                    Nationality :
-                    <select {...register("Nationality")}>
-                        <option value="thai">Thai</option>
-                        <option value="japanese">Japanese</option>
-                        <option value="Chinese">Chinese</option>
-                        <option value="German">German</option>
-                        <option value="Korean">Korean</option>
-                    </select>
-                </Grid>
-                <Grid>
+                <Grid className="cityzen">
                     CityzenID :
                     <input {...register("CityzenID")} type="number" />
                 </Grid>
@@ -91,16 +88,18 @@ const CreateUser = () => {
                     Moblie Phone :
                     <PhoneInput {...register("MobliePhone")} />
                 </Grid>
-                <Grid>
+                <Grid className="passport">
                     Passport No :
                     <input {...register("Passport No")} type="number" />
                 </Grid>
-                <Grid>
+                <Grid className="Salary">
                     Expected Salary :
-                    <input {...register("Expected Salary")} type="number" />
+                    <input {...register("Expected Salary")} type="number" required/>
                 </Grid>
-                <Grid>
-                    <input type="submit" className="submit" />
+                <Grid className="Button">
+                    <Button type="submit" className="submit">
+                        SUBMIT
+                    </Button>
                 </Grid>
             </form>
         </Box>

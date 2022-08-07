@@ -19,3 +19,47 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.Box {
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    border: groove 1px;
+    border-radius: 5px;
+    
+}
+
+.Name {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.BirthdayNation {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.cityzen {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.gender {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.moblie {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.passport {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.Salary {
+    display: flex;
+}
