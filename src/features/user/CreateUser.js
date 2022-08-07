@@ -9,10 +9,11 @@ import "./CreateUser.css";
 const CreateUser = () => {
     
     const dispatch = useDispatch();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
         dispatch(add(data));
+        reset()
 
     };
 
@@ -22,7 +23,7 @@ const CreateUser = () => {
                 <div className="Name">
                     <div className="title">
                         <span>Title *: </span>
-                        <select {...register("Title")}>
+                        <select {...register("Title")} required>
                             <option value="Mr.">Mr.</option>
                             <option value="Ms.">Ms.</option>
                             <option value="Miss.">Miss.</option>
@@ -30,17 +31,17 @@ const CreateUser = () => {
                     </div>
                     <div className="firstname">
                         <span>Firstname *: </span>
-                        <input {...register("Firstname")} type="text" />
+                        <input {...register("Firstname")} required />
                     </div>
                     <div className="lastname">
                         <span>Lastname *: </span>
-                        <input {...register("Lastname")} />
+                        <input {...register("Lastname")} required/>
                     </div>
                 </div>
                 <div className="birthdaynation">
                     <div className="birthday">
                         <span>BirthDay *: </span>
-                        <input {...register("Birthday")} type="date" />
+                        <input {...register("Birthday")} type="date" required/>
                     </div>
                     <span>Nationality : </span>
                     <select {...register("Nationality")}>
